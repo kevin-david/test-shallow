@@ -64,7 +64,61 @@ POST https://{account}.VisualStudio.com/DefaultCollection/git[/{project}]/reposi
 }
 ```
 
-<div id="POST_refs_ex1_json"></div>
+```json
+{
+   "method": "POST",
+   "resourceFormat": "/git/repositories/{repositoryId}/refs",
+   "requestUrl": "https://fabrikam-fiber-inc.visualstudio.com/DefaultCollection/_apis/git/repositories/278d5cd2-584d-4b63-824a-2ba458937249/refs",
+   "requestHeaders": [],
+   "requestBody": 
+      [
+          {
+            "name" : "refs/currently/unsupported",
+            "oldObjectId" : "0000000000000000000000000000000000000000",
+            "newObjectId" : "08eddb2a7d206a8678f5b0913e3ba1572d401617"
+          },
+          {
+            "name" : "refs/tags/first_tag",
+            "oldObjectId" : "08eddb2a7d206a8678f5b0913e3ba1572d401617",
+            "newObjectId" : "0000000000000000000000000000000000000000"
+          },
+          {
+            "name" : "refs/heads/master",
+            "oldObjectId" : "08eddb2a7d206a8678f5b0913e3ba1572d401617",
+            "newObjectId" : "f540d74a1c50ada11d2912b24cd94c5613637b59"
+          } 
+      ]
+   ,
+   "statusCode": 200,
+   "responseBody": {
+    "value": 
+    [
+        {
+            "name": "refs/currently/unsupported",
+            "oldObjectId": "0000000000000000000000000000000000000000",
+            "newObjectId": "08eddb2a7d206a8678f5b0913e3ba1572d401617",
+            "updateStatus": "invalidRefName",
+            "success": false
+        },
+        {
+            "name": "refs/tags/first_tag",
+            "oldObjectId": "08eddb2a7d206a8678f5b0913e3ba1572d401617",
+            "newObjectId": "0000000000000000000000000000000000000000",
+            "updateStatus": "succeeded",
+            "success": true
+        },
+        {
+            "name": "refs/heads/master",
+            "oldObjectId": "08eddb2a7d206a8678f5b0913e3ba1572d401617",
+            "newObjectId": "f540d74a1c50ada11d2912b24cd94c5613637b59",
+            "updateStatus": "succeeded",
+            "success": true
+        }
+    ],
+    "count": 3
+    }
+}
+```
 
 #### After (Using Get refs above)
 ```json
